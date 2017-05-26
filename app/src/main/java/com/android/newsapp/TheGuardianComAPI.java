@@ -27,7 +27,7 @@ public class TheGuardianComAPI {
         args.put("api-key", "test");
 
         String firstPart;
-        if(section.length() > 1){
+        if(!section.isEmpty()){
             firstPart = "https://content.guardianapis.com/" + section + "?";
         }else{
             firstPart = "https://content.guardianapis.com/search?";
@@ -39,7 +39,7 @@ public class TheGuardianComAPI {
         return jsonString;
     }
 
-    private static String getQueryJSONObject(String urlString) throws IOException, JSONException {
+    private static String getQueryJSONObject(String urlString) throws IOException {
 
         HttpURLConnection urlConnection;
         URL url = new URL(urlString);

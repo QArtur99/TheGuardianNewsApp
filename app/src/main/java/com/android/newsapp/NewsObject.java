@@ -7,11 +7,11 @@ import android.graphics.Bitmap;
  */
 
 public class NewsObject {
-    String sectionName;
-    String headLine;
-    String published;
-    String webUrl;
-    Bitmap thumbNail;
+    final String sectionName;
+    final String headLine;
+    final String published;
+    final String webUrl;
+    final Bitmap thumbNail;
 
     NewsObject(String sectionName, String headLine, String published, String webUrl, Bitmap thumbNail){
         this.sectionName = sectionName;

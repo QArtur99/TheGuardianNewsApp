@@ -11,21 +11,19 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<NewsObject>> {
 
 
-    NewsAdapter newsAdapter;
+    private NewsAdapter newsAdapter;
     private TextView emptyStateTextView;
 
     @Override
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     NewsObject newsObject = newsAdapter.getItem(position);
-                    Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse(newsObject.webUrl));
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(newsObject.webUrl));
                     startActivity(intent);
                 }
             });
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     @OnClick(R.id.tryAgain)
-    public void tryAgain(){
+    public void tryAgain() {
         loadApp();
     }
 
@@ -72,10 +70,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<NewsObject>> onCreateLoader(int id, Bundle args) {
-//        Intent intent = getIntent();
-//        String query = intent.getStringExtra(SearchActivity.QUERY);
-//        getSupportActionBar().setTitle(query);
-
         return new NewsLoader(MainActivity.this, "");
     }
 
